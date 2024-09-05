@@ -1,0 +1,52 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <label for="firstName">First Name:</label>
+  <input id="firstName" formControlName="firstName" type="text">
+  <div *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched" class="error-message">
+    *First Name is required.
+  </div>
+
+  <label for="lastName">Last Name:</label>
+  <input id="lastName" formControlName="lastName" type="text">
+  <div *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched" class="error-message">
+    *Last Name is required.
+  </div>
+
+  <label for="streetAddress">Street Address:</label>
+  <input id="streetAddress" formControlName="streetAddress" type="text">
+  <div *ngIf="userForm.get('streetAddress')?.invalid && userForm.get('streetAddress')?.touched" class="error-message">
+    *Street Address is required.
+  </div>
+
+  <label for="streetAddressLine2">Street Address Line 2:</label>
+  <input id="streetAddressLine2" formControlName="streetAddressLine2" type="text">
+
+  <label for="city">City:</label>
+  <input id="city" formControlName="city" type="text">
+  <div *ngIf="userForm.get('city')?.invalid && userForm.get('city')?.touched" class="error-message">
+    *City is required.
+  </div>
+
+  <label for="stateProvince">State/Province:</label>
+  <input id="stateProvince" formControlName="stateProvince" type="text">
+  <div *ngIf="userForm.get('stateProvince')?.invalid && userForm.get('stateProvince')?.touched" class="error-message">
+    *State/Province is required.
+  </div>
+
+  <label for="country">Country:</label>
+  <input id="country" formControlName="country" type="text">
+  <div *ngIf="userForm.get('country')?.invalid && userForm.get('country')?.touched" class="error-message">
+    *Country is required.
+  </div>
+
+  <label for="postalZipCode">Postal/Zip Code:</label>
+  <input id="postalZipCode" formControlName="postalZipCode" type="text">
+  <div *ngIf="userForm.get('postalZipCode')?.invalid && userForm.get('postalZipCode')?.touched" class="error-message">
+    *Postal/Zip Code is required and must be valid, Eg: A1A 1A1.
+  </div>
+
+  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+
+  <!-- Display success or error messages -->
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+  <div *ngIf="errorMessage" class="error-message-button">{{ errorMessage }}</div>
+</form>
